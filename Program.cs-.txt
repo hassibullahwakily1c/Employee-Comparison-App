@@ -12,16 +12,16 @@ namespace EmployeeComparisonApp
             Employee firstEmployee = new Employee
             {
                 Id = 101,
-                FirstName = "Jordan",
-                LastName = "Miller"
+                FirstName = "Hassib Ullah",
+                LastName = "Wakili"
             };
 
             // Create the second Employee object and assign values to its properties.
             Employee secondEmployee = new Employee
             {
                 Id = 101,
-                FirstName = "Taylor",
-                LastName = "Reed"
+                FirstName = "Hassib Ullah",
+                LastName = "Wikili"
             };
 
             // Display the first employee's information.
