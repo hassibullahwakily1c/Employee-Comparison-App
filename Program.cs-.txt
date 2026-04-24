@@ -1,0 +1,43 @@
+using System;
+
+namespace EmployeeComparisonApp
+{
+    // The Program class contains the starting point of the console application.
+    internal class Program
+    {
+        // Main is the first method that runs when the application starts.
+        static void Main(string[] args)
+        {
+            // Create the first Employee object and assign values to its properties.
+            Employee firstEmployee = new Employee
+            {
+                Id = 101,
+                FirstName = "Jordan",
+                LastName = "Miller"
+            };
+
+            // Create the second Employee object and assign values to its properties.
+            Employee secondEmployee = new Employee
+            {
+                Id = 101,
+                FirstName = "Taylor",
+                LastName = "Reed"
+            };
+
+            // Display the first employee's information.
+            Console.WriteLine($"First Employee: {firstEmployee.Id} - {firstEmployee.FirstName} {firstEmployee.LastName}");
+
+            // Display the second employee's information.
+            Console.WriteLine($"Second Employee: {secondEmployee.Id} - {secondEmployee.FirstName} {secondEmployee.LastName}");
+
+            // Compare the two employees using the overloaded == operator.
+            Console.WriteLine($"Are the employees equal using == ? {firstEmployee == secondEmployee}");
+
+            // Compare the two employees using the overloaded != operator.
+            Console.WriteLine($"Are the employees different using != ? {firstEmployee != secondEmployee}");
+
+            // Keep the console window open until the user presses a key.
+            Console.ReadLine();
+        }
+    }
+}

@@ -1,0 +1,64 @@
+using System;
+
+namespace EmployeeComparisonApp
+{
+    // The Employee class represents one employee record in the program.
+    public class Employee
+    {
+        // Stores the unique ID number for the employee.
+        public int Id { get; set; }
+
+        // Stores the employee's first name.
+        public string FirstName { get; set; }
+
+        // Stores the employee's last name.
+        public string LastName { get; set; }
+
+        // Overloads the == operator so two Employee objects can be compared by Id.
+        public static bool operator ==(Employee employeeOne, Employee employeeTwo)
+        {
+            // If both objects are null, they should be considered equal.
+            if (ReferenceEquals(employeeOne, null) && ReferenceEquals(employeeTwo, null))
+            {
+                return true;
+            }
+
+            // If only one object is null, they are not equal.
+            if (ReferenceEquals(employeeOne, null) || ReferenceEquals(employeeTwo, null))
+            {
+                return false;
+            }
+
+            // Compare the Id values of both employees.
+            return employeeOne.Id == employeeTwo.Id;
+        }
+
+        // Overloads the != operator because comparison operators must be overloaded in pairs.
+        public static bool operator !=(Employee employeeOne, Employee employeeTwo)
+        {
+            // Return the opposite result of the overloaded == operator.
+            return !(employeeOne == employeeTwo);
+        }
+
+        // Overrides Equals so the class follows the same comparison logic as the == operator.
+        public override bool Equals(object obj)
+        {
+            // Check whether the object being compared is an Employee.
+            if (obj is Employee otherEmployee)
+            {
+                // Use the overloaded == operator to compare the two employees.
+                return this == otherEmployee;
+            }
+
+            // If the object is not an Employee, return false.
+            return false;
+        }
+
+        // Overrides GetHashCode because Equals was overridden.
+        public override int GetHashCode()
+        {
+            // Use the employee Id to generate the hash code.
+            return Id.GetHashCode();
+        }
+    }
+}
